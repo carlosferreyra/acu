@@ -15,11 +15,17 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Set up uv
-        uses: astral-sh/setup-uv@v7
+      - name: Build sdist
+        run: |
+          pipx run maturin build --sdist --out dist/
 
-      - name: Build distributions
-        run: uv build --wheel --sdist --config-setting=--compatibility=manylinux2014
+      - name: Build manylinux wheel
+        run: |
+          docker run --rm \
+            -v ${{ github.workspace }}:/io \
+            -w /io \
+            ghcr.io/pyo3/maturin \
+            build --release -o /io/dist
 
       - name: Publish to PyPI
         uses: pypa/gh-action-pypi-publish@v1.13.0
