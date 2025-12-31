@@ -17,8 +17,8 @@ jobs:
       - name: Set up uv
         uses: astral-sh/setup-uv@v7
 
-      - name: Build distributions (manylinux)
-        run: uv run -- maturin build --release --compatibility manylinux_2_28 --locked --sdist
+      - name: Build distributions
+        run: uv build
 
       - name: Publish to PyPI
         uses: pypa/gh-action-pypi-publish@v1.13.0
