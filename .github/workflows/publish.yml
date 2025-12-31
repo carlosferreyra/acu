@@ -19,6 +19,8 @@ jobs:
         uses: astral-sh/setup-uv@v7
 
       - name: Build distributions
+        env:
+          MATURIN_BUILD_ARGS: --compatibility manylinux2014
         run: uv build
 
       - name: Publish to PyPI
