@@ -3,7 +3,7 @@
 [![PyPI](https://img.shields.io/pypi/v/acu)](https://pypi.org/project/acu/)
 [![Python](https://img.shields.io/badge/python-3.14%2B-blue)](https://www.python.org/downloads/)
 [![License](https://img.shields.io/badge/license-MIT-green)](#license)
-[![CI/CD](https://github.com/carlosferreyra/acu/actions/workflows/publish.yml/badge.svg)](https://github.com/carlosferreyra/acu/actions)
+[![CI/CD](https://github.com/carlosferreyra/acu/actions/workflows/publish.yml/badge.svg)](https://github.com/carlosferreyra/acu/actions/workflows/publish.yml)
 
 **Write once, deploy everywhere.** ACU is a provider-agnostic infrastructure composition tool that
 lets you define enterprise-grade deployments once and run them across any environment—local,
