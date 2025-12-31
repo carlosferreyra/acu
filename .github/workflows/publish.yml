@@ -17,7 +17,7 @@ jobs:
 
       - name: Build sdist
         run: |
-          pipx run maturin build --sdist --out dist/
+          uvx maturin build --sdist --out dist/
 
       - name: Build manylinux wheel
         run: |
