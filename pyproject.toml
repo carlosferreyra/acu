@@ -2,35 +2,35 @@
     authors = [
         { name = "Carlos Eduardo Ferreyra", email = "eduferreyraok@gmail.com" },
     ]
+    classifiers = [
+        "Development Status :: 3 - Alpha",
+        "Intended Audience :: Developers",
+        "License :: OSI Approved :: MIT License",
+        "Operating System :: OS Independent",
+        "Programming Language :: Python :: 3 :: Only",
+        "Programming Language :: Python :: 3",
+        "Programming Language :: Python :: 3.14",
+        "Programming Language :: Python :: Implementation :: CPython",
+        "Programming Language :: Python",
+        "Programming Language :: Rust",
+        "Topic :: Software Development :: Libraries",
+        "Topic :: Utilities",
+    ]
     dependencies = []
     description = "TODO: short description of acu"
-    keywords = ["cli", "acu", "placeholder"]
+    keywords = ["acu", "cli", "placeholder"]
     license = { text = "MIT" }
     name = "acu"
     readme = "README.md"
     requires-python = ">=3.14"
     version = "0.1.5"
-    classifiers = [
-        "Development Status :: 3 - Alpha",
-        "Intended Audience :: Developers",
-        "License :: OSI Approved :: MIT License",
-        "Programming Language :: Python",
-        "Programming Language :: Python :: 3",
-        "Programming Language :: Python :: 3 :: Only",
-        "Programming Language :: Python :: 3.14",
-        "Programming Language :: Python :: Implementation :: CPython",
-        "Programming Language :: Rust",
-        "Operating System :: OS Independent",
-        "Topic :: Software Development :: Libraries",
-        "Topic :: Utilities",
-    ]
 
 [project.urls]
-    Homepage = "https://carlosferreyra.github.io/acu/"
-    Repository = "https://github.com/carlosferreyra/acu"
-    Issues = "https://github.com/carlosferreyra/acu/issues"
+    Changelog     = "https://github.com/carlosferreyra/acu/releases"
     Documentation = "https://carlosferreyra.github.io/acu/docs"
-    Changelog = "https://github.com/carlosferreyra/acu/releases"
+    Homepage      = "https://carlosferreyra.github.io/acu/"
+    Issues        = "https://github.com/carlosferreyra/acu/issues"
+    Repository    = "https://github.com/carlosferreyra/acu"
 
 [project.scripts]
     acu = "acu:main"
