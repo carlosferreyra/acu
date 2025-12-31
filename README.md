@@ -9,7 +9,8 @@
 lets you define enterprise-grade deployments once and run them across any environment—local,
 staging, or production.
 
-> [!WARNING] This project is in the earliest stage of development. Breaking changes are expected.
+> [!WARNING]
+> This project is in the earliest stage of development. Breaking changes are expected.
 
 ## Table of Contents
 
