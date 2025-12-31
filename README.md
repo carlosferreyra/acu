@@ -9,8 +9,7 @@
 lets you define enterprise-grade deployments once and run them across any environment—local,
 staging, or production.
 
-> [!WARNING]
-> This project is in the earliest stage of development. Breaking changes are expected.
+> [!WARNING] This project is in the earliest stage of development. Breaking changes are expected.
 
 ## Table of Contents
 
@@ -20,6 +19,7 @@ staging, or production.
 - [Quick Start](#quick-start)
 - [How It Works](#how-it-works)
 - [Usage Examples](#usage-examples)
+- [Roadmap](#roadmap)
 - [Contributing](#contributing)
 - [License](#license)
 
@@ -69,7 +69,7 @@ uv tool install acu
 If you prefer, you can also use `uvx` to install ACU:
 
 ```bash
-uvx install acu
+uvx acu
 ```
 
 ### From Source
@@ -172,6 +172,11 @@ acu deploy --all-providers
 
 This translates your single infrastructure definition into Docker Compose, Kubernetes manifests, and
 AWS CloudFormation—all without touching the original definition.
+
+## Roadmap
+
+See [docs/ROADMAP.md](docs/ROADMAP.md) for the draft CLI roadmap covering init/add/list, validation,
+formatting, diffing, schema export, graphing, and other planned commands and flags.
 
 ## Contributing
 
