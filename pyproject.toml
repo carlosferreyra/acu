@@ -15,6 +15,7 @@
     module-name     = "acu._core"
     python-packages = ["acu"]
     python-source   = "src"
+    strip           = true
 
 [tool.uv]
     cache-keys = [
