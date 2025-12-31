@@ -9,6 +9,8 @@
 lets you define enterprise-grade deployments once and run them across any environment—local,
 staging, or production.
 
+> [!WARNING] This project is in the earliest stage of development. Breaking changes are expected.
+
 ## Table of Contents
 
 - [Overview](#overview)
@@ -53,20 +55,25 @@ production with the same definitions.
 
 ## Installation
 
-### Using `uvx` (Recommended)
+### Using `uv` Tool Manager (Recommended)
 
-```bash
-uvx acu
-```
-
-### Using `uv` Tool Manager
+To install ACU, use the `uv` tool, which manages ACU and its dependencies:
 
 ```bash
 uv tool install acu
-acu --version
+```
+
+### Using `uvx` (Alternative)
+
+If you prefer, you can also use `uvx` to install ACU:
+
+```bash
+uvx install acu
 ```
 
 ### From Source
+
+To build ACU from the source, follow these steps:
 
 ```bash
 git clone https://github.com/carlosferreyra/acu
