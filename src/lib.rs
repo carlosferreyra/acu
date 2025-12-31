@@ -9,6 +9,6 @@ mod _core {
 
     #[pyfunction]
     fn hello_from_bin() -> String {
-        "Hello from acu!".to_string()
+        format!("Hello from acu:{}", env!("CARGO_PKG_VERSION"))
     }
 }

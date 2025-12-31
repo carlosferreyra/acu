@@ -6,7 +6,7 @@
     name = "acu"
     readme = "README.md"
     requires-python = ">=3.14"
-    version = "0.1.0"
+    version = "0.1.1"
 
 [project.scripts]
     acu = "acu:main"
