@@ -1,24 +1,29 @@
 [project]
-name = "acu"
-version = "0.1.0"
-readme = "README.md"
-authors = [
-    { name = "Carlos Eduardo Ferreyra", email = "eduferreyraok@gmail.com" }
-]
-requires-python = ">=3.14"
-dependencies = []
+    authors = [
+        { name = "Carlos Eduardo Ferreyra", email = "eduferreyraok@gmail.com" },
+    ]
+    dependencies = []
+    name = "acu"
+    readme = "README.md"
+    requires-python = ">=3.14"
+    version = "0.0.1"
 
 [project.scripts]
-acu = "acu:main"
+    acu = "acu:main"
 
 [tool.maturin]
-module-name = "acu._core"
-python-packages = ["acu"]
-python-source = "src"
+    module-name     = "acu._core"
+    python-packages = ["acu"]
+    python-source   = "src"
 
 [tool.uv]
-cache-keys = [{ file = "pyproject.toml" }, { file = "src/**/*.rs" }, { file = "Cargo.toml" }, { file = "Cargo.lock" }]
+    cache-keys = [
+        { file = "Cargo.lock" },
+        { file = "Cargo.toml" },
+        { file = "pyproject.toml" },
+        { file = "src/**/*.rs" },
+    ]
 
 [build-system]
-requires = ["maturin>=1.0,<2.0"]
-build-backend = "maturin"
+    build-backend = "maturin"
+    requires      = ["maturin>=1.0,<2.0"]
