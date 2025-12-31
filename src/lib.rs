@@ -8,7 +8,11 @@ mod _core {
     use pyo3::prelude::*;
 
     #[pyfunction]
-    fn hello_from_bin() -> String {
-        format!("Hello from acu:{}", env!("CARGO_PKG_VERSION"))
+    fn hello_from_bin(py: Python) -> PyResult<String> {
+        let version = py
+            .import("importlib.metadata")?
+            .call_method1("version", ("acu",))?
+            .extract::<String>()?;
+        Ok(format!("Hello from acu:{}", version))
     }
 }
