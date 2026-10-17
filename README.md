@@ -1,197 +1,32 @@
-# Architect Composer Utility (ACU)
+# ACU — infrastructure project retired
 
-[![PyPI](https://img.shields.io/pypi/v/acu)](https://pypi.org/project/acu/)
-[![Python](https://img.shields.io/badge/python-3.14%2B-blue)](https://www.python.org/downloads/)
-[![License](https://img.shields.io/badge/license-MIT-green)](#license)
-[![Publish to PyPI](https://github.com/carlosferreyra/acu/actions/workflows/publish.yml/badge.svg)](https://github.com/carlosferreyra/acu/actions/workflows/publish.yml)
+ACU's infrastructure work continues in [SCU — System Composition Utility](https://github.com/carlosferreyra/scu).
+Follow SCU's README for its current status and installation instructions.
 
-**Write once, deploy everywhere.** ACU is a provider-agnostic infrastructure composition tool that
-lets you define enterprise-grade deployments once and run them across any environment—local,
-staging, or production.
+ACU was an early prototype. Its proposed infrastructure commands and provider integrations were not implemented.
+Version 0.1.7 replaces the greeting scaffold with a migration notice:
 
-> [!WARNING] This project is in the earliest stage of development. Breaking changes are expected.
-
-## Table of Contents
-
-- [Overview](#overview)
-- [Features](#features)
-- [Installation](#installation)
-- [Quick Start](#quick-start)
-- [How It Works](#how-it-works)
-- [Usage Examples](#usage-examples)
-- [Roadmap](#roadmap)
-- [Contributing](#contributing)
-- [License](#license)
-
-## Overview
-
-ACU simplifies infrastructure orchestration by decoupling infrastructure definitions from provider
-implementations. Define your infrastructure topology in a single `infra.yml` file—including
-databases, clusters, message queues, and more—without committing to a specific provider, version, or
-SQL/NoSQL flavor. When it's time to deploy, choose your provider and let ACU handle the translation.
-
-### Philosophy
-
-- **Provider Agnostic**: Define resources once; deploy to any provider (AWS, Azure, GCP, Kubernetes,
-  Docker, bare metal).
-- **Developer-Friendly**: Simple YAML syntax makes it easy for developers to spin up local
-  infrastructure environments.
-- **Production Ready**: Scale from local development to enterprise deployments without rewriting
-  configs.
-
-## Features
-
-✅ **Provider-Agnostic Infrastructure Definitions** — Define databases, clusters, queues, and
-services without provider lock-in.
-
-✅ **Multi-Cloud & Multi-Environment Support** — Deploy the same infrastructure template to
-Kubernetes, Docker, VMs, and bare metal.
-
-✅ **Local-to-Production Parity** — Simulate enterprise-grade infrastructure locally; deploy to
-production with the same definitions.
-
-✅ **Cross-Platform CLI** — Available on Linux, macOS, and Windows via `uvx`.
-
-✅ **Fast, Rust-Powered** — Built with Rust for speed and reliability.
-
-## Installation
-
-### Using `uv` Tool Manager (Recommended)
-
-To install ACU, use the `uv` tool, which manages ACU and its dependencies:
-
-```bash
-uv tool install acu
-```
-
-### Using `uvx` (Alternative)
-
-If you prefer, you can also use `uvx` to install ACU:
-
-```bash
+```sh
 uvx acu
+# or, for an existing installation:
+uv tool upgrade acu
+acu --help
 ```
 
-### From Source
+Every invocation prints the notice and exits successfully. ACU does not install or execute SCU.
+The retirement release is pure Python and requires Python 3.14 or newer.
 
-To build ACU from the source, follow these steps:
+## Historical design
 
-```bash
-git clone https://github.com/carlosferreyra/acu
-cd acu
-uv build
-```
+The [historical design index](docs/README.md) preserves ACU's proposed YAML model,
+resource types, and CLI roadmap. These are unimplemented proposals, not SCU's specification.
+Earlier source remains available in Git history and earlier PyPI releases remain available.
 
-## Quick Start
+## Future of this package
 
-### 1. Create Your Infrastructure Definition
+The ACU infrastructure project is inactive and this repository will be archived after the
+retirement release is verified. The PyPI project is retained; the name may be reused for a
+different purpose in a clearly announced future release. It is not a permanent alias for SCU.
 
-Initialize a new `infra.yml` file (like `Dockerfile` for Docker):
-
-```bash
-acu new
-```
-
-This creates a minimal or templated `infra.yml` in your current directory.
-
-### 2. Define Your Infrastructure
-
-Edit `infra.yml` to describe your infrastructure. See the full example at
-[docs/infra.example.yml](docs/infra.example.yml) for a validated, provider-agnostic template with
-resources, connections, labels, and scopes.
-
-### 3. Deploy
-
-Run commands from the directory containing `infra.yml` (no need to specify file path):
-
-```bash
-# Spin up infrastructure locally for development/testing
-acu run dev
-
-# Validate infrastructure definition
-acu validate
-
-# Deploy to production with environment-specific settings
-acu deploy
-
-# Dry-run (simulate without deploying)
-acu deploy --dry-run
-```
-
-## How It Works
-
-1. **Define** infrastructure in a provider-agnostic YAML format (`infra.yml`).
-2. **Validate** your definitions for correctness.
-3. **Simulate** locally to test topology and dependencies.
-4. **Deploy** to your chosen provider (Docker, Kubernetes, cloud, etc.) without changing the
-   definition.
-
-Resource type defaults and allowed fields: see [docs/resource-types.md](docs/resource-types.md).
-
-The key insight: infrastructure definitions describe _what_ you need, not _how_ to provision it. ACU
-translates your definitions into provider-specific configurations at deployment time.
-
-## Usage Examples
-
-### Example 1: Local Development Environment
-
-Spun up a multi-service stack locally for testing:
-
-```bash
-# Create infra.yml
-acu new --template multi-service
-
-# Run everything locally with Docker
-acu run dev
-```
-
-This starts databases, clusters, and queues locally using Docker, perfect for development.
-
-### Example 2: Production Deployment
-
-Deploy the same infrastructure to production:
-
-```bash
-# Deploy to Kubernetes, cloud providers, or bare metal
-acu deploy
-```
-
-This uses the production settings defined in `infra.yml` to provision real infrastructure.
-
-### Example 3: Multi-Provider Deployment
-
-```bash
-acu deploy --providers docker,kubernetes,aws
-```
-
-Or configure all providers in `infra.yml` and deploy to all with:
-
-```bash
-acu deploy --all-providers
-```
-
-This translates your single infrastructure definition into Docker Compose, Kubernetes manifests, and
-AWS CloudFormation—all without touching the original definition.
-
-## Roadmap
-
-See [docs/ROADMAP.md](docs/ROADMAP.md) for the draft CLI roadmap covering init/add/list, validation,
-formatting, diffing, schema export, graphing, and other planned commands and flags.
-
-## Contributing
-
-Contributions are welcome! ACU is in active development, and we're looking for:
-
-- Provider implementations (Kubernetes, Docker, Terraform, CloudFormation, etc.)
-- Infrastructure resource types (networks, storage, monitoring, etc.)
-- Documentation and examples
-- Bug reports and feature requests
-
-See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
-
-## License
-
-ACU is dual-licensed under the **MIT License** and other permissive licenses for compatibility with
-projects like [Ruff](https://github.com/astral-sh/ruff) and [uv](https://github.com/astral-sh/uv).
-
-See [LICENSE](LICENSE) for details.
+To resume work, unarchive the repository, update the documentation and package metadata,
+review the publishing workflow, and explicitly re-enable publishing before releasing.

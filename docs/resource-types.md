@@ -1,3 +1,5 @@
+> Historical, unimplemented ACU proposal. See [SCU](https://github.com/carlosferreyra/scu) for ongoing development.
+
 # ACU Resource Types (Draft)
 
 This document lists common resource types and suggested default properties. Enforce the allowed set

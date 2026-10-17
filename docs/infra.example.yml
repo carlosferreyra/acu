@@ -1,3 +1,4 @@
+# Historical unimplemented proposal; not a SCU configuration.
 # ACU infrastructure example (provider-agnostic)
 # Validation rules (summarized):
 # - version: required string

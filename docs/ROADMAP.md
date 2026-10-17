@@ -1,3 +1,5 @@
+> Historical, unimplemented ACU proposal. See [SCU](https://github.com/carlosferreyra/scu) for ongoing development.
+
 # ACU CLI Roadmap (Draft)
 
 Planned CLI surface aligned with the infra model and validation rules.

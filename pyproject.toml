@@ -1,54 +1,34 @@
 [project]
-    authors = [
-        { name = "Carlos Eduardo Ferreyra", email = "eduferreyraok@gmail.com" },
-    ]
-    classifiers = [
-        "Development Status :: 3 - Alpha",
-        "Intended Audience :: Developers",
-        "License :: OSI Approved :: MIT License",
-        "Operating System :: OS Independent",
-        "Programming Language :: Python :: 3 :: Only",
-        "Programming Language :: Python :: 3",
-        "Programming Language :: Python :: 3.14",
-        "Programming Language :: Python :: Implementation :: CPython",
-        "Programming Language :: Python",
-        "Programming Language :: Rust",
-        "Topic :: Software Development :: Libraries",
-        "Topic :: Utilities",
-    ]
-    dependencies = []
-    description = "TODO: short description of acu"
-    keywords = ["acu", "cli", "placeholder"]
-    license = { text = "MIT" }
-    name = "acu"
-    readme = "README.md"
-    requires-python = ">=3.14"
-    version = "0.1.6"
+name = "acu"
+version = "0.1.7"
+description = "ACU infrastructure prototype retired; development continues in SCU"
+readme = "README.md"
+requires-python = ">=3.14"
+authors = [{ name = "Carlos Eduardo Ferreyra", email = "eduferreyraok@gmail.com" }]
+license = { text = "MIT" }
+classifiers = [
+    "Development Status :: 7 - Inactive",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.14",
+]
+dependencies = []
+keywords = ["acu", "scu", "retired"]
 
 [project.urls]
-    Changelog     = "https://github.com/carlosferreyra/acu/releases"
-    Documentation = "https://carlosferreyra.github.io/acu/docs"
-    Homepage      = "https://carlosferreyra.github.io/acu/"
-    Issues        = "https://github.com/carlosferreyra/acu/issues"
-    Repository    = "https://github.com/carlosferreyra/acu"
+Homepage = "https://github.com/carlosferreyra/scu"
+Documentation = "https://github.com/carlosferreyra/scu#readme"
+Repository = "https://github.com/carlosferreyra/acu"
+Changelog = "https://github.com/carlosferreyra/acu/releases"
+Successor = "https://github.com/carlosferreyra/scu"
 
 [project.scripts]
-    acu = "acu:main"
-
-[tool.maturin]
-    module-name     = "acu._core"
-    python-packages = ["acu"]
-    python-source   = "src"
-    strip           = true
-
-[tool.uv]
-    cache-keys = [
-        { file = "Cargo.lock" },
-        { file = "Cargo.toml" },
-        { file = "pyproject.toml" },
-        { file = "src/**/*.rs" },
-    ]
+acu = "acu:main"
 
 [build-system]
-    build-backend = "maturin"
-    requires      = ["maturin>=1.0,<2.0"]
+requires = ["hatchling>=1.26,<2"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/acu"]
